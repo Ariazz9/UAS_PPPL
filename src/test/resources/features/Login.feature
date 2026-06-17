@@ -1,28 +1,28 @@
-Feature: User Login
-  Sebagai pengguna web inventory
-  Saya ingin bisa masuk ke dalam sistem
-  Agar saya bisa mengakses dashboard dan mengelola data inventory
+Feature: Autentikasi Super Admin
+  Sebagai Super Admin Delova
+  Saya ingin login ke dalam sistem
+  Agar saya dapat mengakses dashboard dan mengelola inventaris
 
-  @Positive
-  Scenario: Login berhasil dengan kredensial yang valid
-    Given User berada di halaman login
-    When User memasukkan email valid "admin@inventory.com"
-    And User memasukkan password valid "Admin123!"
-    And User menekan tombol login
-    Then User diarahkan ke halaman dashboard utama
-    And Sistem menampilkan pesan sukses "Selamat datang"
-
-  @Negative
-  Scenario Outline: Login gagal karena input tidak valid atau salah kredensial
-    Given User berada di halaman login
-    When User memasukkan email "<email>"
-    And User memasukkan password "<password>"
-    And User menekan tombol login
-    Then Sistem menampilkan pesan error "<pesan_error>"
+  @Negative @EquivalencePartitioning
+  Scenario Outline: Login gagal dengan format email/username dan password tidak valid atau salah
+    Given Super Admin berada di halaman Login
+    When Super Admin memasukkan email "<email_input>"
+    And Super Admin memasukkan password "<password_input>"
+    And Super Admin menekan tombol Continue
+    Then Sistem menolak akses dan tetap berada di halaman Login
 
     Examples:
-      | email               | password  | pesan_error                  |
-      |                     | Admin123! | Email tidak boleh kosong     |
-      | admin.com           | Admin123! | Format email tidak valid     |
-      | admin@inventory.com | salah123  | Email atau password salah    |
-      | admin@inventory.com |           | Password tidak boleh kosong  |
+      | email_input       | password_input |
+      | admin1            | password6969   |
+      | miguel@gmail.com  | password123    |
+      | PriaSolo@gmail    | password6969   |
+
+
+  @Positive @E2E
+  Scenario: Login berhasil dengan kredensial yang valid
+    Given Super Admin berada di halaman Login
+    When Super Admin memasukkan email atau username "superadmin2" yang valid
+    And Super Admin memasukkan password yang valid
+    And Super Admin menekan tombol Continue
+    Then Super Admin berhasil masuk dan diarahkan ke halaman Dashboard Utama
+
