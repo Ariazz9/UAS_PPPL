@@ -57,7 +57,7 @@ public class LoginSteps {
 
     @Then("Super Admin berhasil masuk dan diarahkan ke halaman Dashboard Utama")
     public void superAdminBerhasilMasuk() {
-        assert driver.getCurrentUrl().contains("https://app-delova.vercel.app/dashboard") : "Gagal masuk ke dashboard!";
+        assert driver.getCurrentUrl().contains("https://app-delova.vercel.app/dashboard") : "Gagal masuk ke dashboard";
         driver.quit();
     }
 
@@ -65,11 +65,12 @@ public class LoginSteps {
     public void sistemMenolakAksesDanTetapDiHalamanLogin() throws InterruptedException {
         Thread.sleep(1500);
         String currentUrl = driver.getCurrentUrl();
-        //Pastikan URL tidak tembus ke dashboard
-        assert !currentUrl.contains("dashboard") : "Test Gagal: Login invalid malah tembus ke dashboard!";
-        //Pastikan URL tetap tertahan di halaman login
-        assert currentUrl.contains("login") : "Test Gagal: Halaman ter-redirect ke tempat yang salah!";
 
+        //Pastikan URL tidak tembus ke dashboard
+        assert !currentUrl.contains("dashboard") : "Test Gagal: Login invalid";
+        //Pastikan URL tetap tertahan di halaman login
+        assert currentUrl.contains("login") : "Test Gagal: Halaman ter-redirect ke tempat yang salah";
+        assert loginPage.isErrorMuncul() : "Test Gagal: Pesan error merah tidak muncul di layar";
         driver.quit();
     }
 }

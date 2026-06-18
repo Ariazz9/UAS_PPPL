@@ -12,7 +12,7 @@ Feature: Manajemen Inventory (Tambah barang)
   Scenario: Super Admin berhasil menambahkan barang baru ke dalam sistem
     Given Super Admin sudah login dan berada di halaman Inventory
     When Super Admin menekan tombol Tambah Barang Baru
-    And Super Admin mengisi form dengan Nama "Kain Tenun Enrique", Kategori "Kain", Material "Katun", Supplier "Miguel", Jumlah "100", Unit "pcs", Harga "75000"
+    And Super Admin mengisi form dengan Nama "Kain Hasil Testing", Kategori "Kain", Material "Katun", Supplier "Miguel", Jumlah "100", Unit "pcs", Harga "75000"
     And Super Admin menekan tombol Simpan
     Then Sistem menampilkan pesan sukses dan barang "Kain Tenun Enrique" muncul di tabel
 

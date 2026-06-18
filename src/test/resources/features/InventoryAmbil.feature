@@ -2,7 +2,7 @@ Feature: Inventory (Ambil Barang)
 
   @Negative @Positive @E2E @BoundaryValueAnalysis
   Scenario Outline: Validasi berbagai aturan batas saat Super Admin mengambil barang
-    Given Super Admin sudah login dan membuka form Ambil Barang "Kain Tenun Enrique"
+    Given Super Admin sudah login dan membuka form Ambil Barang "Kain Hasil Testing"
     When Super Admin mengisi form pengambilan dengan jumlah "<jumlah_ambil>" dan deskripsi "<deskripsi_ambil>"
     And Super Admin menekan tombol Potong Stok
     Then Sistem akan memproses dan memberikan respon status "<hasil_yang_diharapkan>"

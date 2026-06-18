@@ -11,7 +11,7 @@ public class LoginPage {
     private By inputEmail = By.xpath("//input[@placeholder='Enter Username or Email']");
     private By inputPassword = By.xpath("//input[@placeholder='1234']");
     private By btnContinue = By.xpath("//button[@id='kt_sign_in_submit']");
-    private By errorMsg = By.xpath("//*[contains(text(), 'Username atau password salah')]");
+    private By errorMsg = By.xpath("//*[contains(text(), 'password salah')]");
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -37,6 +37,6 @@ public class LoginPage {
     }
 
     public boolean isErrorMuncul() {
-        return driver.findElement(errorMsg).isDisplayed();
+        return driver.findElements(errorMsg).size() > 0;
     }
 }
