@@ -13,6 +13,10 @@ public class DashboardPage {
 
     // REVISI TOTAL: Target tombol langsung berdasarkan strukturnya, bukan elemen di sebelahnya
     private By btnFilterToggle = By.xpath("//div[@style='position: relative;']/button[contains(@class, 'btn-light') and contains(@class, 'gap-2')]");
+    private By btnExport = By.xpath("//button[contains(normalize-space(), 'Export')]");
+    private By menuPdf = By.xpath("//button[contains(normalize-space(), 'Export PDF')]");
+    private By menuLogout = By.cssSelector("button[aria-label='Logout']");
+    private By btnKonfirmasiLogout = By.xpath("//button[contains(@class, 'btn-danger') and text()='Logout']");
 
     // Locator tabel untuk verifikasi (tetap)
     private By tableRow = By.xpath("//table//tbody//tr");
@@ -47,5 +51,29 @@ public class DashboardPage {
         // Cek apakah barang muncul di dalam tabel Items Activity
         By rowBarang = By.xpath("//table//tbody//tr//td[contains(normalize-space(), '" + namaBarang + "')]");
         return !driver.findElements(rowBarang).isEmpty();
+    }
+
+    public void klikExport () {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(btnExport));
+        driver.findElement(btnExport).click();
+    }
+
+    public void klikPdf () {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(menuPdf));
+        driver.findElement(menuPdf).click();
+    }
+
+    public void klikLogout() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(menuLogout));
+        driver.findElement(menuLogout).click();
+    }
+
+    public void klikKonfirmasiLogout() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(btnKonfirmasiLogout));
+        driver.findElement(btnKonfirmasiLogout).click();
     }
 }

@@ -20,9 +20,8 @@ Skenario pengujian ditulis menggunakan format Gherkin (`Given, When, Then`) yang
 
 ## 3. Pembagian Tugas dalam Kelompok
 - **[Aurell Achmad Madina Hartama] :** Menyusun Skenario BDD (Test Case), mengembangkan *Step Definitions login, inventory*, menyusun laporan *Test Suite* & *README*, Melakukan setup arsitektur *Page Object Model (POM)*, konfigurasi *Dependencies* (Maven/POM.xml), *Test Runner*, setup auto report, dan menyusun dokumen *Bug Report*.
-- **[Rizendy Affarin] :**
-Mengerjakan bagian testing pada laman 'Dashboard'. Berfokus pada fitur "filter Aktivitas Barang".  
-- **[Mutia Umniati Z] :** 
+- **[Rizendy Affarin] :** Menyusun skenario BDD (Test Case), mengerjakan bagian testing pada laman 'Dashboard' berfokus pada fitur "Filter Aktivitas Barang", serta menyusun dokumen README.
+- **[Mutia Umniati Z] :** Menyusun skenario BDD (Test Case), melakukan bug fixing pada negative test Login dan tabel Log, mengerjakan testing pada laman 'Dashboard' berfokus pada fitur Export PDF, melakukan testing fitur Logout, serta menyusun dokumen README.
 - 
 ## 4. Struktur Repository
 Berikut adalah struktur direktori dari repository ini:
