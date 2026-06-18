@@ -27,7 +27,7 @@ Skenario pengujian ditulis menggunakan format Gherkin (`Given, When, Then`) yang
 Berikut adalah struktur direktori dari repository ini:
 
 ```text
-├── docs/                      # Berisi dokumen laporan pengujian
+├── FolderDokumenTestSuite_dan_BugReport/                    # Berisi dokumen laporan pengujian
 │   ├── Test_Suite.pdf         # Laporan Test Case (14 Skenario)
 │   └── Bug_Report.pdf         # Laporan temuan Bug (Functional/Regression Bug pada Login)
 ├── src/
