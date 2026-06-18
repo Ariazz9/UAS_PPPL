@@ -1,6 +1,6 @@
 Feature: Manajemen Inventory (Tambah barang)
 
-  @Negative @BVA
+  @Negative @EquivalencePartitioning
   Scenario: Super Admin gagal menambahkan barang karena Nama Barang kosong
     Given Super Admin sudah login dan berada di halaman Inventory
     When Super Admin menekan tombol Tambah Barang Baru

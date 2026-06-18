@@ -9,14 +9,13 @@ Feature: Autentikasi Super Admin
     When Super Admin memasukkan email "<email_input>"
     And Super Admin memasukkan password "<password_input>"
     And Super Admin menekan tombol Continue
-    Then Sistem menolak akses dan tetap berada di halaman Login
+    Then Sistem memunculkan pesan error dan tetap berada di halaman Login
 
     Examples:
       | email_input       | password_input |
       | admin1            | password6969   |
       | miguel@gmail.com  | password123    |
       | PriaSolo@gmail    | password6969   |
-
 
   @Positive @E2E
   Scenario: Login berhasil dengan kredensial yang valid
@@ -25,4 +24,3 @@ Feature: Autentikasi Super Admin
     And Super Admin memasukkan password yang valid
     And Super Admin menekan tombol Continue
     Then Super Admin berhasil masuk dan diarahkan ke halaman Dashboard Utama
-
