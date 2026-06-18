@@ -1,6 +1,6 @@
 Feature: Inventory (Ambil Barang)
 
-  @Negative @Positive @E2E @BoundaryValueAnalysis
+  @Negative @Positive @E2E @EquivalencePartitioning
   Scenario Outline: Validasi berbagai aturan batas saat Super Admin mengambil barang
     Given Super Admin sudah login dan membuka form Ambil Barang "Kain Tenun Enrique"
     When Super Admin mengisi form pengambilan dengan jumlah "<jumlah_ambil>" dan deskripsi "<deskripsi_ambil>"
@@ -9,7 +9,7 @@ Feature: Inventory (Ambil Barang)
 
     Examples:
       | jumlah_ambil | deskripsi_ambil                | hasil_yang_diharapkan |
-      |              |                                | Ditolak               |
-      | 2            |                                | Ditolak               |
-      | 2000         | Ambil semua                    | Ditolak               |
-      | 2            | Pengambilan untuk event kampus | Berhasil              |
+      | 0            |                                | Ditolak               |
+      | 101          |                                | Ditolak               |
+      | 1            | Ambil 1 aja                    | Berhasil              |
+      | 99           | Pengambilan untuk event        | Berhasil              |
