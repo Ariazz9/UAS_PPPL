@@ -8,7 +8,7 @@ import io.cucumber.junit.platform.engine.Constants;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features/03_TambahBarang.feature")
+@SelectClasspathResource("features/03_InventoryAdd.feature")
 @ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "stepdefinitions")
 @ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty, html:target/Laporan-03-TambahBarang.html")
 public class RunTambahBarang {

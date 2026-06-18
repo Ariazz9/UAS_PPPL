@@ -8,7 +8,7 @@ import io.cucumber.junit.platform.engine.Constants;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features/02_Dashboard.feature")
+@SelectClasspathResource("features/02_DashboardFilter.feature")
 @ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "stepdefinitions")
 @ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty, html:target/Laporan-02-Dashboard.html")
 public class RunDashboard {
