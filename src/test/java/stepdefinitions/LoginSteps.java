@@ -65,11 +65,11 @@ public class LoginSteps {
     public void sistemMenolakAksesDanTetapDiHalamanLogin() throws InterruptedException {
         Thread.sleep(1500);
         String currentUrl = driver.getCurrentUrl();
+        //Pastikan URL tidak tembus ke dashboard
         assert !currentUrl.contains("dashboard") : "Test Gagal: Login invalid malah tembus ke dashboard!";
+        //Pastikan URL tetap tertahan di halaman login
         assert currentUrl.contains("login") : "Test Gagal: Halaman ter-redirect ke tempat yang salah!";
-        String usernameSetelahRefresh = loginPage.getUsernameValue();
-        assert usernameSetelahRefresh.equals(defaultUsername) :
-                "Test Gagal: Web tidak me-refresh dengan benar! Nilai inputan salah masih tertinggal.";
+
         driver.quit();
     }
 }

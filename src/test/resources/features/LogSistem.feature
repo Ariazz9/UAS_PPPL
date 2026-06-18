@@ -4,4 +4,4 @@ Feature: Log Sistem (Activity Log)
   Scenario: Memverifikasi log aksi "create" oleh Super Admin
     Given Super Admin sudah login dan berada di halaman Log Sistem
     When Super Admin melihat tabel Log Sistem
-    Then Baris log terbaru harus menampilkan aksi "update" untuk tabel "items"
+    Then Baris log terbaru harus menampilkan aksi "CREATE" untuk tabel "items"
