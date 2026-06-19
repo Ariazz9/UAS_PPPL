@@ -9,5 +9,5 @@ Feature: Filter Dashboard (Items Activity)
 
     Examples:
       | kategori_dipilih | barang_diharapkan  |
-      | Kain             | Kain Tenun Enrique |
-      | Benang           | Benang             |
+      | Kain             | Kain Rajut Solo |
+      | Benang           | Benang Linen           |
