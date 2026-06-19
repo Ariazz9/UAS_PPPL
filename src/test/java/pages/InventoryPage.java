@@ -4,14 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class InventoryPage {
     WebDriver driver;
+    WebDriverWait wait; // Tambahkan variabel WebDriverWait
 
     // Locator Dinamis berdasarkan Label Form
-    private By btnTambahBarang = By.xpath("//button[normalize-space()='Tambah']"); // Asumsi teks tombolnya ini
-    private By btnSimpan = By.xpath("//button[@type='submit'][normalize-space()='Tambah']"); // Asumsi teks tombolnya ini
+    private By btnTambahBarang = By.xpath("//button[normalize-space()='Tambah']");
+    private By btnSimpan = By.xpath("//button[@type='submit'][normalize-space()='Tambah']");
 
     private By inputNama = By.xpath("//label[text()='Nama']/following-sibling::input");
     private By selectKategori = By.xpath("//label[text()='Kategori']/following-sibling::select");
@@ -25,19 +30,29 @@ public class InventoryPage {
 
     public InventoryPage(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
+
     public void klikMenuInventoryDiSidebar() {
-        driver.findElement(menuInventorySidebar).click();
+        wait.until(ExpectedConditions.elementToBeClickable(menuInventorySidebar)).click();
     }
 
     public void klikTambahBarangBaru() {
-        driver.findElement(btnTambahBarang).click();
+        wait.until(ExpectedConditions.elementToBeClickable(btnTambahBarang)).click();
     }
-    public void isiFormLengkap(String nama, String kategori, String material, String supplier, String jumlah, String unit, String harga) throws InterruptedException {
-        driver.findElement(inputNama).sendKeys(nama);
-        new Select(driver.findElement(selectKategori)).selectByVisibleText(kategori);
-        new Select(driver.findElement(selectMaterial)).selectByVisibleText(material);
-        new Select(driver.findElement(selectSupplier)).selectByVisibleText(supplier);
+
+    public void isiFormLengkap(String nama, String kategori, String material, String supplier, String jumlah, String unit, String harga) {
+
+        WebElement fieldNama = wait.until(ExpectedConditions.visibilityOfElementLocated(inputNama));
+        fieldNama.sendKeys(nama);
+        WebElement dropdownKategori = wait.until(ExpectedConditions.elementToBeClickable(selectKategori));
+        new Select(dropdownKategori).selectByVisibleText(kategori);
+
+        WebElement dropdownMaterial = wait.until(ExpectedConditions.elementToBeClickable(selectMaterial));
+        new Select(dropdownMaterial).selectByVisibleText(material);
+
+        WebElement dropdownSupplier = wait.until(ExpectedConditions.elementToBeClickable(selectSupplier));
+        new Select(dropdownSupplier).selectByVisibleText(supplier);
 
         WebElement fieldJumlah = driver.findElement(inputJumlah);
         fieldJumlah.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
@@ -51,10 +66,11 @@ public class InventoryPage {
         fieldHarga.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
         fieldHarga.sendKeys(harga);
 
-        Thread.sleep(1500);
+        // HAPUS Thread.sleep(1500)
     }
 
     public void klikSimpan() {
-        driver.findElement(btnSimpan).click();
+        // Tunggu tombol simpan bisa diklik sebelum mengeksekusinya
+        wait.until(ExpectedConditions.elementToBeClickable(btnSimpan)).click();
     }
 }

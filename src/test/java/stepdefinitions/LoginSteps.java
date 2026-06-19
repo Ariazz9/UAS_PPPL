@@ -61,12 +61,9 @@ public class LoginSteps {
     @Then("Sistem memunculkan pesan error dan tetap berada di halaman Login")
     public void sistemMenolakAksesDanTetapDiHalamanLogin() throws InterruptedException {
         Thread.sleep(1500);
-
-        // 1. Validasi Bug Fix: Pastikan kotak merah "Login Gagal" muncul
         boolean isErrorTerlihat = loginPage.isErrorMuncul();
         assert isErrorTerlihat : "BUG REGRESI: Kredensial salah, tapi notifikasi error tidak muncul!";
 
-        // 2. Validasi URL: Pastikan tidak tembus ke dashboard
         String currentUrl = driver.getCurrentUrl();
         assert !currentUrl.contains("dashboard") : "Test Gagal: Login invalid malah tembus ke dashboard!";
         assert currentUrl.contains("login") : "Test Gagal: Halaman ter-redirect ke tempat yang salah!";

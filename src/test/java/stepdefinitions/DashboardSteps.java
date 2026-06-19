@@ -47,7 +47,7 @@ public class DashboardSteps {
         boolean isBarangAda = dashboardPage.verifikasiBarangMunculDiTabel(namaBarang);
         assert isBarangAda : "Filter Gagal! Barang " + namaBarang + " tidak ditemukan di tabel setelah filter diterapkan.";
 
-        System.out.println("✅ Filter berfungsi. Barang " + namaBarang + " muncul di tabel.");
+        System.out.println("Filter berfungsi. Barang " + namaBarang + " muncul di tabel.");
         driver.quit();
     }
 

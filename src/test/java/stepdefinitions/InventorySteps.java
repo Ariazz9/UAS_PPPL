@@ -13,9 +13,7 @@ public class InventorySteps {
     InventoryPage inventoryPage;
     AmbilBarangPage ambilBarangPage;
 
-    // ==========================================
     // BAGIAN 1: SKENARIO TAMBAH BARANG
-    // ==========================================
 
     @Given("Super Admin sudah login dan berada di halaman Inventory")
     public void superAdminSudahLoginDanBeradaDiHalamanInventory() throws InterruptedException {
@@ -69,9 +67,7 @@ public class InventorySteps {
         driver.quit();
     }
 
-    // ==========================================
     // BAGIAN 2: SKENARIO AMBIL BARANG (SCENARIO OUTLINE)
-    // ==========================================
 
     @Given("Super Admin sudah login dan membuka form Ambil Barang {string}")
     public void superAdminSudahLoginDanMembukaFormAmbilBarang(String namaBarang) throws InterruptedException {
@@ -85,15 +81,12 @@ public class InventorySteps {
         loginPage.klikLanjut();
         Thread.sleep(4000);
 
-        // Pindah ke Inventory
         driver.get("https://app-delova.vercel.app/apps/inventory");
         Thread.sleep(3000);
 
-        // Rangkaian klik membuka modal Potong Stok
         ambilBarangPage = new AmbilBarangPage(driver);
         ambilBarangPage.cariBarang(namaBarang);
 
-        // 2. Sekarang baru klik kartunya
         ambilBarangPage.klikKartuBarang(namaBarang);
         Thread.sleep(2000);
         ambilBarangPage.masukKeDetailBarang();

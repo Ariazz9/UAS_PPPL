@@ -21,24 +21,21 @@ public class LogSistemSteps {
         loginPage.klikLanjut();
         Thread.sleep(4000);
 
-        driver.get("https://app-delova.vercel.app/apps/log-system"); // Pastikan URL ini benar
+        driver.get("https://app-delova.vercel.app/apps/log-system");
         Thread.sleep(2000);
     }
 
     @When("Super Admin melihat tabel Log Sistem")
     public void lihatLog() {
-        // Cukup navigasi saja, aksi verifikasi ada di Then
     }
 
     @Then("Baris log terbaru harus menampilkan aksi {string} untuk tabel {string}")
     public void cekLog(String aksi, String tabel) {
         LogPage lp = new LogPage(driver);
         String aksiTerdeteksi = lp.getAksiTerbaru();
-
-        // Asumsi: aksiTerdeteksi akan mengembalikan string seperti "create" atau "update"
         assert aksiTerdeteksi.equalsIgnoreCase(aksi) : "Log tidak mencatat aksi " + aksi;
 
-        System.out.println("✅ [LOG VERIFIED] Aksi " + aksi + " tercatat di sistem.");
+        System.out.println("Aksi " + aksi + " tercatat di sistem.");
         driver.quit();
     }
 }

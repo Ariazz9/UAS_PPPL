@@ -21,7 +21,7 @@ public class HistorySteps {
         loginPage.klikLanjut();
         Thread.sleep(4000);
 
-        driver.get("https://app-delova.vercel.app/apps/history"); // Pastikan URL ini benar
+        driver.get("https://app-delova.vercel.app/apps/history");
         Thread.sleep(2000);
     }
 
@@ -35,6 +35,7 @@ public class HistorySteps {
     public void cekHistori(String nama) {
         HistoryPage hp = new HistoryPage(driver);
         assert hp.verifikasiData(nama) : "Data barang tidak ditemukan di tabel histori!";
+        System.out.println("Aksi " + nama + " tercatat di sistem.");
         driver.quit();
     }
 }

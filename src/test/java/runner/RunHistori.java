@@ -8,7 +8,7 @@ import io.cucumber.junit.platform.engine.Constants;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("features/05_HistoriPengambilan.feature")
+@SelectClasspathResource("features/05_LogTransaksi.feature")
 @ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME, value = "stepdefinitions")
 @ConfigurationParameter(key = Constants.PLUGIN_PROPERTY_NAME, value = "pretty, html:target/Laporan-05-Histori.html")
 public class RunHistori {

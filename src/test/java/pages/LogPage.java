@@ -4,7 +4,6 @@ import org.openqa.selenium.*;
 
 public class LogPage {
     WebDriver driver;
-    // Mencari badge status (create/update)
     private By badgeAction = By.xpath("//span[contains(@class, 'badge-light-success')]");
 
     public LogPage(WebDriver driver) { this.driver = driver; }
